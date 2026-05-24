@@ -29,7 +29,7 @@
             
             <HBox alignment="CENTER" spacing="10.0">
                 <Label text="◈" styleClass="brand-icon" />
-                <Label text="GeoDashboard" styleClass="brand-title" />
+                <Label text="ApexRun" styleClass="brand-title" />
             </HBox>
             <Region styleClass="accent-divider" prefHeight="1.5" maxWidth="300.0" />
             <Label text="Mi Perfil" styleClass="auth-title" />

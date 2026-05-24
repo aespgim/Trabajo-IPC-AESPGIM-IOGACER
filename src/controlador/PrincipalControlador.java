@@ -93,7 +93,9 @@ public class PrincipalControlador implements Initializable {
     private AreaChart<Number, Number> chartDesnivel;
     private Activity actividadActual;
     @FXML
-    private Button btnCambiar;
+    private MenuItem btnModificar;
+    @FXML
+    private MenuItem btnHistorialSesiones;
  
 
    
@@ -124,6 +126,9 @@ public class PrincipalControlador implements Initializable {
         map_scrollpane.setVvalue(scrollV);
     }
 
+    //NOS HEMOS AYUDADO CON LA IA PARA SOLUCIONAR CIERTOS ERRORES QUE NO
+    //SABIAMOS COMO SOLUCIONAR Y TAMBIEN PARA ALGUNOS ASPECTOS
+    
     @FXML
     void listClicked(MouseEvent event) {
 
@@ -262,9 +267,6 @@ public class PrincipalControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        lblDesnivel.setText("");
-        lblDuracion.setText("");
-        lblDistancia.setText("");
         
         chartDesnivel.setVisible(false);
         chartDesnivel.setManaged(false);
@@ -384,7 +386,9 @@ public class PrincipalControlador implements Initializable {
         circle.setCenterY(y);
         mapPane.getChildren().add(circle); 
     }
-
+    
+    //AQUI TAMBIEN HEMOS IMPLEMENTADO LA IA POR EL MISMO MOTIVO QUUE EN "LISTcLICKED"
+    
     @FXML
     private void handleImportar(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -492,7 +496,9 @@ public class PrincipalControlador implements Initializable {
         }
         
     }
-
+    
+    //PARA IMPLEMENTAR ESTA FUNCION "DIBUJARpERFILdESNIVEL" TAMBIEN HEMOS USADO LA IA 
+    
     private void dibujarPerfilDesnivel(Activity activity, MapProjection proj, Pane mapa) {
         
         chartDesnivel.getData().clear();
@@ -560,6 +566,24 @@ public class PrincipalControlador implements Initializable {
             e.printStackTrace();
         }
         
+    }
+
+    @FXML
+    private void abrirHistorialSesiones(ActionEvent event) {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/vista/HistorialSesiones.fxml"));
+            javafx.scene.Parent root = loader.load();
+            
+            javafx.scene.Scene scene = new javafx.scene.Scene(root);
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(scene);
+            stage.setTitle("Historial de Inicios de Sesión");
+            
+            stage.showAndWait(); 
+        } catch (Exception e) {
+            System.err.println("Error al abrir el historial de sesiones.");
+            e.printStackTrace();
+        }
     }
 
 

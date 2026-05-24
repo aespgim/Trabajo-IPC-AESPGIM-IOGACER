@@ -70,8 +70,7 @@ public class LoginControlador implements Initializable {
         boolean loginCorrecto = app.login(nickname, password);
         
         if (loginCorrecto) {
-            lblErrores.setText("¡Login correcto! Cargando la aplicación...");
-            lblErrores.setStyle("-fx-text-fill: green;"); 
+            
             
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
